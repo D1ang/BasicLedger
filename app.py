@@ -21,6 +21,12 @@ def index():
     return render_template("base.html")
 
 
+@app.route('/get_transactions')
+def get_transactions():
+    return render_template('transactions.html',
+                           transactions=mongo.db.transactions.find())
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
