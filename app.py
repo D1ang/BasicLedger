@@ -17,8 +17,9 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def index():
-    return render_template("base.html")
+@app.route('/get_dashboard')
+def get_dashboard():
+    return render_template("dashboard.html")
 
 
 @app.route('/get_transactions')
