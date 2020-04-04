@@ -15,6 +15,11 @@ app.config["MONGO_URI"] = "mongodb://192.168.1.150:27017/database"
 mongo = PyMongo(app)
 
 
+@app.route("/")
+def index():
+    return render_template("base.html")
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
