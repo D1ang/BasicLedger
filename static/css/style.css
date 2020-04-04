@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
+
+.custom-navbarLogo {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 2em;
+}
+
+.overview {
+  background-color: #54C97A;
+  border-radius: 0 0 5px 5px;
+  height: 200px;
+  width: 100%;
+}
