@@ -39,6 +39,12 @@ def insert_transaction():
     return redirect(url_for('get_transactions'))
 
 
+@app.route('/delete_transaction/<transaction_id>')
+def delete_transaction(transaction_id):
+    mongo.db.transactions.remove({'_id': ObjectId(transaction_id)})
+    return redirect(url_for('get_transactions'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
