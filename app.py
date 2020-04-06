@@ -25,7 +25,20 @@ def get_dashboard():
 @app.route('/get_transactions')
 def get_transactions():
     return render_template('transactions.html',
-                           transactions=mongo.db.transactions.find())
+                           transactions = mongo.db.transactions.find())
+                           #transactions = mongo.db.transactions.find({"catagory":"Household"}))
+
+
+@app.route('/add_transaction')
+def add_transaction():
+    return render_template("add_transaction.html")
+
+
+@app.route('/insert_transaction', methods=['POST'])
+def insert_transaction():
+    transactions = mongo.db.transactions
+    transactions.insert_one(request.form.to_dict())
+    return redirect(url_for('get_transactions'))
 
 
 if __name__ == '__main__':
