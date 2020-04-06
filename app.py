@@ -22,18 +22,16 @@ def get_dashboard():
     return render_template("dashboard.html")
 
 
+"""Creates the route to the add transaction page and creates a find for the catagories list"""
 @app.route('/get_transactions')
 def get_transactions():
     return render_template('transactions.html',
-                           transactions = mongo.db.transactions.find())
+                           transactions = mongo.db.transactions.find(),
+                           categories=mongo.db.categories.find())
                            #transactions = mongo.db.transactions.find({"catagory":"Household"}))
 
 
-@app.route('/add_transaction')
-def add_transaction():
-    return render_template("add_transaction.html")
-
-
+"""Creates a transaction to the database after the button is pressed"""
 @app.route('/insert_transaction', methods=['POST'])
 def insert_transaction():
     transactions = mongo.db.transactions
