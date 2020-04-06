@@ -20,4 +20,36 @@
     {% endfor %}
   </table>
 </div>
+
+
+<form action="{{url_for('insert_transaction')}}" method="POST">
+
+  <input id="deb" name="transition" value="debit" type="radio" />
+  <label for="deb">Debit</label>
+  <input id="cred" name="transition" value="credit" type="radio" checked />
+  <label for="cred">Credit</label>
+
+  <select id="category" name="category">
+    <option value="" disabled selected>Choose category</option>
+    {% for category in categories %}
+    <option value="{{category.category_name}}">{{category.category_name}}</option>
+    {% endfor %}
+  </select>
+
+  <label>Transaction</label>
+
+  <input id="details" name="details" type="text">
+  <label for="icon_prefix">Details</label>
+
+  <input id="date" name="date" type="text">
+  <label for="icon_prefix">Date</label>
+
+  <input id="amount" name="amount" type="number">
+  <label for="icon_prefix">Amount</label>
+
+  <button type="submit" name="action">
+    Add Transition
+  </button>
+
+</form>
 {% endblock %}
