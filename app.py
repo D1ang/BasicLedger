@@ -28,7 +28,7 @@ def get_transactions():
     return render_template('transactions.html',
                            transactions=mongo.db.transactions.find(),
                            categories=mongo.db.categories.find())
-                           # transactions = mongo.db.transactions.find({"catagory":"Household"}))
+    # transactions = mongo.db.transactions.find({"catagory":"Household"}))
 
 
 """Creates a transaction to the database after the button is pressed"""
@@ -41,7 +41,8 @@ def insert_transaction():
 
 @app.route('/edit_transaction/<transaction_id>')
 def edit_transaction(transaction_id):
-    the_transaction = mongo.db.transactions.find_one({"_id": ObjectId(transaction_id)})
+    the_transaction = mongo.db.transactions.find_one(
+        {"_id": ObjectId(transaction_id)})
     all_categories = mongo.db.categories.find()
     return render_template('edittransaction.html', transaction=the_transaction, categories=all_categories)
 
@@ -50,7 +51,7 @@ def edit_transaction(transaction_id):
 def update_transaction(transaction_id):
     transactions = mongo.db.transactions
     transactions.update({'_id': ObjectId(transaction_id)},
-                 {
+                        {
         'transition': request.form.get('transition'),
         'category_name': request.form.get('category_name'),
         'details': request.form.get('details'),
