@@ -1,7 +1,10 @@
 import os
+import json
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson import json_util
+
 
 from os import path
 if path.exists("env.py"):
@@ -66,6 +69,18 @@ def update_transaction(transaction_id):
 def delete_transaction(transaction_id):
     mongo.db.transactions.remove({'_id': ObjectId(transaction_id)})
     return redirect(url_for('get_transactions'))
+
+
+"""Searches for transactions on Mongo when the route is selected then appensd the transactions en convert them to JSON"""
+@app.route("/transactions/json")
+def transactionsJSON():
+    transactions = mongo.db.transactions.find()
+    json_transactions = []
+    for transaction in transactions:
+        json_transactions.append(transaction)
+    json_transactions = json.dumps(
+        json_transactions, default=json_util.default)
+    return json_transactions
 
 
 if __name__ == '__main__':
