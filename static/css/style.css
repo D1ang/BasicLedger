@@ -10,13 +10,20 @@ body, html {
   font-size: 2em;
 }
 
+/*---------------------------Custom overview styling--------------------------*/
+
 .overview {
   background-color: #1abc9c;
   border-radius: 0 0 5px 5px;
   height: 200px;
 }
 
-/*------------------------Custom radio buttons styling-----------------------*/
+.transactionsTotal{
+  padding: 70px;
+  color: white;
+}
+
+/*------------------------Custom radio buttons styling------------------------*/
 
 input.custom-radio-btn {
   visibility: hidden;
@@ -42,9 +49,4 @@ input.custom-radio-btn:active + label.custom-radio-btn {
 
 input.custom-radio-btn:checked + label.custom-radio-btn {
   color: rgb(40, 167, 69);
-}
-
-.transactionsTotal{
-  padding: 70px;
-  color: white;
 }
