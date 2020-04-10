@@ -22,7 +22,8 @@ mongo = PyMongo(app)
 def get_dashboard():
     return render_template('dashboard.html',
                             debit=debit_total(),
-                            credit=credit_total())
+                            credit=credit_total(),
+                            total=grand_total())
 
 
 """----------------------------------Loads the Transactions page---------------------------------"""
@@ -32,7 +33,8 @@ def get_transactions():
                            transactions=mongo.db.transactions.find(),
                            categories=mongo.db.categories.find(),
                            debit=debit_total(),
-                           credit=credit_total())
+                           credit=credit_total(),
+                           total=grand_total())
 
 
 """----------------------Calculates the total of all the DEBIT transactions----------------------"""
@@ -46,7 +48,7 @@ def debit_total():
     return sum(transaction_amount)
 
 
-"""----------------------Calculates the total of all the CREDIT transactions----------------------"""
+"""----------------------Calculates the total of all the CREDIT transactions---------------------"""
 def credit_total():
 
     transaction_amount = []
@@ -55,6 +57,12 @@ def credit_total():
                   transaction_amount.append(float(record['amount']))
 
     return sum(transaction_amount)
+
+
+"""----------------------Calculates the GRAND total of all the transactions----------------------"""
+def grand_total():
+    calc = debit_total() - credit_total()
+    return calc
 
 
 """-------------------------------------Creates a transaction------------------------------------"""
