@@ -1,85 +1,94 @@
 {% extends 'base.html' %} {% block content %}
 
 <!-- Button for the add transaction modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Transaction</button>
-
-<!-- Transactions table -->
-<div class="container">
-  <table style="width:100%">
-    <tr>
-      <th>Date</th>
-      <th>Category</th>
-      <th>Details</th>
-      <th>Debit</th>
-      <th>Credit</th>
-      <th>Actions</th>
-    </tr>
-    {% for transaction in transactions %}
-
-    <tr>
-      <td>{{transaction.date}}</td>
-      <td>{{transaction.category_name}}</td>
-      <td>{{transaction.details}}</td>
-
-      {% if transaction.transition == "debit" %}
-        <td>€ {{transaction.amount}}</td>
-        <td></td>
-      {% else %}
-        <td></td>
-        <td>€ {{transaction.amount}}</td>
-      {% endif %}
-
-      <td>
-        <a href="{{url_for('edit_transaction', transaction_id=transaction._id)}}">Edit</a>
-        <a class="" href="{{url_for('delete_transaction', transaction_id=transaction._id)}}">Delete</a>
-      </td>
-    </tr>
-
-    {% endfor %}
-  </table>
+<div class="container text-center my-3">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TransactionModal">Add Transaction</button>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<!-- Transactions table -->
+<div class="container my-4">
+  <div class="row">
+    <div class="col">
+      <table style="width:100%">
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Details</th>
+          <th>Debit</th>
+          <th>Credit</th>
+          <th>Actions</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+          <td>{{transaction.date}}</td>
+          <td>{{transaction.category_name}}</td>
+          <td>{{transaction.details}}</td>
+        {% if transaction.transition == "debit" %}
+          <td>€ {{transaction.amount}}</td>
+          <td></td>
+        {% else %}
+          <td></td>
+          <td>€ {{transaction.amount}}</td>
+        {% endif %}
+          <td>
+            <a href="{{url_for('edit_transaction', transaction_id=transaction._id)}}"><i class="fas fa-edit"></i></a>
+            <a href="{{url_for('delete_transaction', transaction_id=transaction._id)}}"><i class="fas fa-trash"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Add Transaction Modal -->
+<div class="modal fade" id="TransactionModal" tabindex="-1" role="dialog" aria-labelledby="TransactionModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <form action="{{url_for('insert_transaction')}}" method="POST">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Transaction</h5>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="deb" name="transition" value="debit">
-            <label class="form-check-label" for="deb">Debit</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="cred" name="transition" value="credit" checked>
-            <label class="form-check-label" for="cred">Credit</label>
-          </div>
+        <div class="modal-header mx-4">
+          <h5 class="modal-title text-uppercase my-2" id="TransactionModalLabel">Add Transaction</h5>
         </div>
-        <div class="modal-body">
-          <div class="form-group">
+        <div class="modal-body mx-4">
+
+          <!-- Modal Form inputfields-->
+          <div class="form-group my-2">
+            <input type="radio" class="form-check-input custom-radio-btn" id="debit" name="transition" value="debit">
+            <label for="debit" class="form-check-label custom-radio-btn"><i class="fas fa-check fa-1x"></i> Debit</label>
+            <input type="radio" class="form-check-input custom-radio-btn" id="credit" name="transition" value="credit" checked>
+            <label for="credit" class="form-check-label custom-radio-btn"><i class="fas fa-check fa-1x"></i> Credit</label>
+          </div>
+          <div class="form-group mt-4">
             <label for="category">Transaction</label>
-            <select class="form-control" id="category" name="category">
+            <select class="form-control" id="category_name" name="category_name">
               <option value="" disabled selected>Choose category</option>
-                {% for category in categories %}
-              <option value="{{category.category_name}}">{{category.category_name}}</option>
+              {% for category in categories %}
+                <option value="{{category.category_name}}">{{category.category_name}}</option>
               {% endfor %}
             </select>
           </div>
           <div class="form-group">
-            <label for="icon_prefix">Details</label>
+            <label for="details">Details</label>
             <input type="text" class="form-control" id="details" name="details">
           </div>
           <div class="form-group">
-            <label for="icon_prefix">Date</label>
-            <input type="text" class="form-control" id="date" name="date">
+            <label for="date">Date</label>
+            <input type="text" class="form-control" id="date" name="date" placeholder="DD/MM/YYY">
           </div>
           <div class="form-group">
-            <label for="icon_prefix">Amount</label>
-            <input type="number" class="form-control" id="amount" name="amount">
+            <label for="amount">Amount</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">€</span>
+              </div>
+              <input class="form-control two-decimals" type="number" id="amount" name="amount" value="0,00" placeholder="0,00" min="0" step="any">
+              <div class="input-group-append">
+                <span class="input-group-text">,00</span>
+              </div>
+            </div>
           </div>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-success" name="action">Add</button>
+          <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-success text-uppercase" name="action">Add</button>
         </div>
       </form>
     </div>
