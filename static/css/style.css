@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
 
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 .custom-navbarLogo {
-  font-family: 'Annie Use Your Telescope', cursive;
+  font-family: 'Annie Use Your Telescope';
   font-size: 2em;
 }
 
@@ -9,5 +14,37 @@
   background-color: #1abc9c;
   border-radius: 0 0 5px 5px;
   height: 200px;
-  width: 100%;
+}
+
+/*------------------------Custom radio buttons styling-----------------------*/
+
+input.custom-radio-btn {
+  visibility: hidden;
+}
+
+label.custom-radio-btn {
+  cursor: pointer;
+  padding: 1px;
+  margin-right: 20px;
+  color: #000;
+  -webkit-transition: 0.15s;
+  -o-transition: 0.15s;
+  transition: 0.15s;
+}
+
+input.custom-radio-btn:hover + label.custom-radio-btn {
+  color: rgb(40, 167, 69);
+}
+
+input.custom-radio-btn:active + label.custom-radio-btn {
+  color: rgba(72, 200, 101);
+}
+
+input.custom-radio-btn:checked + label.custom-radio-btn {
+  color: rgb(40, 167, 69);
+}
+
+.transactionsTotal{
+  padding: 70px;
+  color: white;
 }
