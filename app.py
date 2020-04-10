@@ -1,40 +1,63 @@
 import os
-import json
+import pymongo
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from bson import json_util
-
 
 from os import path
-if path.exists("env.py"):
+if path.exists('env.py'):
     import env
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = 'database'
-app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
-
+app.config['MONGO_DBNAME'] = 'database'
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
 
-@app.route("/")
+"""--------------------------------------Loads the dashboard-------------------------------------"""
+@app.route('/')
 @app.route('/get_dashboard')
 def get_dashboard():
-    return render_template("dashboard.html")
+    return render_template('dashboard.html',
+                            debit=debit_total(),
+                            credit=credit_total())
 
 
-"""Creates the route to the add transaction page and creates a find for the catagories list"""
+"""----------------------------------Loads the Transactions page---------------------------------"""
 @app.route('/get_transactions')
 def get_transactions():
     return render_template('transactions.html',
                            transactions=mongo.db.transactions.find(),
-                           categories=mongo.db.categories.find())
-    # transactions = mongo.db.transactions.find({"catagory":"Household"}))
+                           categories=mongo.db.categories.find(),
+                           debit=debit_total(),
+                           credit=credit_total())
 
 
-"""Creates a transaction to the database after the button is pressed"""
+"""----------------------Calculates the total of all the DEBIT transactions----------------------"""
+def debit_total():
+
+    transaction_amount = []
+
+    for record in mongo.db.transactions.find({'transition': 'debit'}):
+                  transaction_amount.append(float(record['amount']))
+
+    return sum(transaction_amount)
+
+
+"""----------------------Calculates the total of all the CREDIT transactions----------------------"""
+def credit_total():
+
+    transaction_amount = []
+
+    for record in mongo.db.transactions.find({'transition': 'credit'}):
+                  transaction_amount.append(float(record['amount']))
+
+    return sum(transaction_amount)
+
+
+"""-------------------------------------Creates a transaction------------------------------------"""
 @app.route('/insert_transaction', methods=['POST'])
 def insert_transaction():
     transactions = mongo.db.transactions
@@ -42,12 +65,14 @@ def insert_transaction():
     return redirect(url_for('get_transactions'))
 
 
+"""-------------------------------------Updates a transaction------------------------------------"""
 @app.route('/edit_transaction/<transaction_id>')
 def edit_transaction(transaction_id):
-    the_transaction = mongo.db.transactions.find_one(
-        {"_id": ObjectId(transaction_id)})
+    the_transaction = mongo.db.transactions.find_one({'_id': ObjectId(transaction_id)})
     all_categories = mongo.db.categories.find()
-    return render_template('edittransaction.html', transaction=the_transaction, categories=all_categories)
+    return render_template('edittransaction.html',
+                            transaction=the_transaction,
+                            categories=all_categories)
 
 
 @app.route('/update_transaction/<transaction_id>', methods=['POST'])
@@ -64,25 +89,14 @@ def update_transaction(transaction_id):
     return redirect(url_for('get_transactions'))
 
 
-"""Deletes a transaction by searching on it's id"""
+"""-------------------------Deletes a transaction by searching on it's id------------------------"""
 @app.route('/delete_transaction/<transaction_id>')
 def delete_transaction(transaction_id):
     mongo.db.transactions.remove({'_id': ObjectId(transaction_id)})
     return redirect(url_for('get_transactions'))
 
 
-"""Searches for transactions on Mongo when the route is selected then appensd the transactions en convert them to JSON"""
-@app.route("/transactions/json")
-def transactionsJSON():
-    transactions = mongo.db.transactions.find()
-    json_transactions = []
-    for transaction in transactions:
-        json_transactions.append(transaction)
-    json_transactions = json.dumps(
-        json_transactions, default=json_util.default)
-    return json_transactions
-
-
+"""---------------------------Run the app and set the proper IP + Port---------------------------"""
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
