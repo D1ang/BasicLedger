@@ -50,3 +50,38 @@ input.custom-radio-btn:active + label.custom-radio-btn {
 input.custom-radio-btn:checked + label.custom-radio-btn {
   color: rgb(40, 167, 69);
 }
+
+/*-------------------------Datepicker style override--------------------------*/
+
+.flatpickr-calendar {
+  border: 1px solid #ced4da;
+  box-shadow: 0px 0px 0px 0px #fff;
+  width: 418px;
+}
+
+.flatpickr-innerContainer {
+  width: 400px;
+}
+
+.flatpickr-rContainer {
+  width: 400px;
+}
+
+.flatpickr-weekdays {
+  width: 400px;
+}
+
+.flatpickr-days {
+  width: 400px;
+}
+
+.dayContainer {
+  width: 600px;
+  max-width: 400px;
+}
+
+.flatpickr-day {
+  width: 150px;
+  padding: 15;
+  max-width: 400px;
+}
