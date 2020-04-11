@@ -1,9 +1,11 @@
 import os
 import pymongo
 import pygal
+import json
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson import json_util
 
 from os import path
 if path.exists('env.py'):
@@ -25,6 +27,23 @@ def bar_chart():
     chart.add('Credit', [15, 45, 76, 80, 91, 95])
     chart_data = chart.render_data_uri()
     return chart_data
+
+
+
+@app.route("/bar")
+def bar():
+    with open('bar.json','r') as bar_file:
+        data = json.load(bar_file)
+    chart = pygal.Bar()
+    mark_list = [x['mark'] for x in data]
+    chart.add('Annual Mark List',mark_list)
+    chart.x_labels = [x['year'] for x in data]
+    chart.render_to_file('static/images/bar_chart.svg')
+    img_url = 'static/images/bar_chart.svg?cache=' + str(time.time())
+    return render_template('app.html',image_url = img_url)
+
+
+
 
 
 """--------------------------------Loads the Pie chart with Pygal--------------------------------"""
@@ -124,6 +143,21 @@ def update_transaction(transaction_id):
 def delete_transaction(transaction_id):
     mongo.db.transactions.remove({'_id': ObjectId(transaction_id)})
     return redirect(url_for('get_transactions'))
+
+
+"""Searches for transactions on Mongo when the route is selected then appensd the transactions en convert them to JSON"""
+@app.route("/transactions/json")
+def transactionsJSON():
+    
+    json_transactions = []
+    
+    transactions = mongo.db.transactions.find() 
+
+    for transaction in transactions:
+        json_transactions.append(transaction["amount"])
+    json_transactions = json.dumps(
+        json_transactions, default=json_util.default)
+    return json_transactions
 
 
 """---------------------------Run the app and set the proper IP + Port---------------------------"""
