@@ -73,7 +73,7 @@
           </div>
           <div class="form-group">
             <label for="date">Date</label>
-            <input type="text" class="form-control" id="date" name="date" placeholder="DD/MM/YYY">
+            <input type="date" class="form-control d-none" id="date" name="date" placeholder="DD/MM/YYY">
           </div>
           <div class="form-group">
             <label for="amount">Amount</label>
@@ -81,7 +81,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">€</span>
               </div>
-              <input class="form-control two-decimals" type="number" id="amount" name="amount" value="0,00" placeholder="0,00" min="0" step="any">
+              <input class="form-control two-decimals" type="number" id="amount" name="amount" value="0,00" placeholder="0,00" min="0" step="any" required>
               <div class="input-group-append">
                 <span class="input-group-text">,00</span>
               </div>
