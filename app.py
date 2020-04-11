@@ -1,5 +1,6 @@
 import os
 import pymongo
+import pygal
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -16,6 +17,25 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 mongo = PyMongo(app)
 
 
+"""--------------------------------Loads the Bar chart with Pygal--------------------------------"""
+def bar_chart():
+    chart = pygal.Bar()
+    chart.x_labels = ['JAN','FEB','MAR','APR','MAY','JUN']
+    chart.add('Debit', [15, 31, 89, 200, 356, 900])
+    chart.add('Credit', [15, 45, 76, 80, 91, 95])
+    chart_data = chart.render_data_uri()
+    return chart_data
+
+
+"""--------------------------------Loads the Pie chart with Pygal--------------------------------"""
+def pie_chart():
+    chart = pygal.Pie(inner_radius=.4)
+    chart.add('Debit', [85])
+    chart.add('Credit', [15])
+    chart_data = chart.render_data_uri()
+    return chart_data
+
+
 """--------------------------------------Loads the dashboard-------------------------------------"""
 @app.route('/')
 @app.route('/get_dashboard')
@@ -23,7 +43,9 @@ def get_dashboard():
     return render_template('dashboard.html',
                             debit=debit_total(),
                             credit=credit_total(),
-                            total=grand_total())
+                            total=grand_total(),
+                            bar_chart=bar_chart(),
+                            pie_chart=pie_chart())
 
 
 """----------------------------------Loads the Transactions page---------------------------------"""

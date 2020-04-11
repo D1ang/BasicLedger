@@ -126,5 +126,5 @@ The logo is created by me.
 
 
 ### Acknowledgements
-
+- Sentdex Pygal tutorial [link](https://www.youtube.com/watch?v=BIttXQO0bXw&list=PLQVvvaa0QuDc_owjTbIY4rbgXOFkUYOUB&index=33)
 - W3schools.com [link](https://www.w3schools.com/)

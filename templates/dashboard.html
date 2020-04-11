@@ -1,7 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container">
-  Dashboard
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <embed src={{bar_chart|safe}} type="image/svg+xml">
+    </div>
+    <div class="col">
+      <embed src={{pie_chart|safe}} type="image/svg+xml">
+    </div>
+  </div>
 </div>
 
 {% endblock %}
