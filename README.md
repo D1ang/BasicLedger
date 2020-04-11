@@ -69,14 +69,15 @@ Green is the colour most commonly associated with: Harmony, safety, balanced, an
 
 ### JavaScript Libraries
 1. jquery - *To improve inputfield feedback*
+2. flatpickr - *lightweight, powerful javascript datetimepicker with no dependencies*
 
 ## Features
 This tool creates input field options based on the chosen options by the end-user.
 
-Release 1.0 - Ledger with CRUD functionality and a debit/credit overview
-Release 2.0 - Dashboard with graphs overview
-Release 3.0 - Frontpage with contact
-Release 4.0 - Login
+- Release 1.0 - Ledger with CRUD functionality and a debit/credit overview
+- Release 2.0 - Dashboard with graphs overview
+- Release 3.0 - Frontpage with contact
+- Release 4.0 - Login
 
 
 ### Features Left to Implement
@@ -128,3 +129,4 @@ The logo is created by me.
 ### Acknowledgements
 - Sentdex Pygal tutorial [link](https://www.youtube.com/watch?v=BIttXQO0bXw&list=PLQVvvaa0QuDc_owjTbIY4rbgXOFkUYOUB&index=33)
 - W3schools.com [link](https://www.w3schools.com/)
+- flatpickr [link](https://github.com/flatpickr/flatpickr)
