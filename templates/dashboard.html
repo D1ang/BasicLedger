@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <embed src={{bar_chart|safe}} type="image/svg+xml">
+  <div class="row gray-background">
+    <div class="col d-none d-sm-block p-4">
+      <embed class="custom-graph" src={{bar_chart|safe}} type="image/svg+xml">
     </div>
-    <div class="col">
-      <embed src={{pie_chart|safe}} type="image/svg+xml">
+    <div class="col p-4">
+      <embed class="custom-graph" src={{pie_chart|safe}} type="image/svg+xml">
     </div>
   </div>
 </div>
