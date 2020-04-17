@@ -4,6 +4,7 @@ import pygal
 import datetime
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from pygal.style import Style
 from bson.objectid import ObjectId
 from bson import json_util
 
@@ -26,7 +27,9 @@ def bar_chart():
         {'$group': {'_id': '$category_name', 'subtotal': {'$sum': '$amount'}}}
     ]))
 
-    chart = pygal.Bar()
+    custom_style = Style(plot_background='transparent')
+    chart = pygal.Bar(style=custom_style, title=u'Outgoing costs', show_legend=False)
+
     credit_subtotals = [record['subtotal'] for record in credit_data]
 
     chart.x_labels = [record['_id'] for record in credit_data]
@@ -38,7 +41,9 @@ def bar_chart():
 
 """--------------------------------Loads the Pie chart with Pygal--------------------------------"""
 def pie_chart():
-    chart = pygal.Pie(inner_radius=.4)
+    custom_style = Style(plot_background='transparent')
+    chart = pygal.Pie(style=custom_style, inner_radius=.65, legend_at_bottom=True)
+    
     chart.add('Credit', credit_total())
     chart.add('Debit', debit_total())
     chart_data = chart.render_data_uri()
