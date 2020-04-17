@@ -1,26 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body, html {
   margin: 0;
   padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  color: #050607;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+ }
+
+/*-----------------------------backgrounds colour-----------------------------*/
+
+.navbar-bg {
+  background-color: rgb(84, 201, 123);
+}
+
+.gray-background {
+  background-color: rgb(238, 238, 238);
+}
+
+/*----------------------------Custom navbar styling---------------------------*/
+
+.custom-navbar {
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 55px;
+  color: #fff;
+}
+
+.custom-navbar a:link, a:visited, a:active {
+  color: #fff;
+  height: 55px;
+}
+
+.custom-navbar a:hover {
+  background-color: rgb(84, 201, 123);
+  height: 55px;
 }
 
 .custom-navbarLogo {
-  font-family: 'Annie Use Your Telescope';
+  font-family: 'Annie Use Your Telescope', sans-serif;
   font-size: 2em;
 }
 
+.custom-link {
+  margin-top: 14px;
+} 
+
+
 /*---------------------------Custom overview styling--------------------------*/
 
-.overview {
-  background-color: #1abc9c;
-  border-radius: 0 0 5px 5px;
-  height: 200px;
+.dashboard-overview {
+  background-color: rgb(84, 201, 123);
+  border-radius: 0 0 10px 10px;
 }
 
-.transactionsTotal{
-  padding: 70px;
-  color: white;
+.dashboard-card {
+  background-color: rgb(84, 201, 123);;
+}
+
+.custom-graph {
+  border-radius: 10px;
+  background-color: #fff;
+  width: 95%;
+}
+
+.sidebars {
+  border-left: solid 1px #fff;
+  border-right: solid 1px #fff;
 }
 
 /*------------------------Custom radio buttons styling------------------------*/
