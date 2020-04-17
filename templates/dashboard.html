@@ -1,5 +1,28 @@
 {% extends 'base.html' %} {% block content %}
 
+<!--Overview-->
+<div id="dashboard-overview" class="card-group p-4">
+  <div class="card text-center text-white dashboard-card border-0">
+    <div class="card-body">
+      <h2 class="card-title">Total debit</h2>
+      <h5 class="card-text">€ {{debit}}</h5>
+    </div>
+  </div>
+  <div class="card text-center text-white dashboard-card border-0">
+    <div class="card-body sidebars">
+      <h2 class="card-title">Total credit</h2>
+      <h5 class="card-text">€ {{credit}}</h5>
+    </div>
+  </div>
+  <div class="card text-center text-white dashboard-card border-0">
+    <div class="card-body">
+      <h2 class="card-title">Balance</h2>
+      <h5 class="card-text">€ {{total}}</h5>
+    </div>
+  </div>
+</div>
+
+<!--Graphs-->
 <div class="container-fluid">
   <div class="row gray-background">
     <div class="col d-none d-sm-block p-4">

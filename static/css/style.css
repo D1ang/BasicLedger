@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*---------------------------Custom overview styling--------------------------*/
 
-.dashboard-overview {
+#dashboard-overview {
   background-color: rgb(84, 201, 123);
   border-radius: 0 0 10px 10px;
 }
