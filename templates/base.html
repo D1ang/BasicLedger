@@ -9,6 +9,7 @@
   <title>BasicLedger</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 
@@ -43,7 +44,9 @@
   <script src="https://kit.fontawesome.com/dd6f581e56.js"></script>
   <script src="{{url_for('static', filename='js/main.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
   <script>var datepicker = flatpickr('#date',{dateFormat:'Z', inline:true});</script>
+  <script>$(document).ready( function () {$('#table_id').DataTable();} );</script>
 </body>
 
 </html>
