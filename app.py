@@ -39,8 +39,8 @@ def bar_chart():
 """--------------------------------Loads the Pie chart with Pygal--------------------------------"""
 def pie_chart():
     chart = pygal.Pie(inner_radius=.4)
-    chart.add('Debit', [85])
-    chart.add('Credit', [15])
+    chart.add('Credit', credit_total())
+    chart.add('Debit', debit_total())
     chart_data = chart.render_data_uri()
 
     return chart_data
