@@ -131,3 +131,4 @@ The logo is created by me.
 - Pygal svg charts tutorial [link](https://code.tutsplus.com/tutorials/intro-to-pygal-a-python-svg-charts-creator--cms-27692)
 - W3schools.com [link](https://www.w3schools.com/)
 - flatpickr [link](https://github.com/flatpickr/flatpickr)
+- DataTables [link](https://datatables.net/)
