@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<!--Overview-->
+<!--Dashboard overview-->
 <div id="dashboard-overview" class="card-group p-4">
   <div class="card text-center text-white dashboard-card border-0">
     <div class="card-body">
@@ -24,7 +24,7 @@
 
 <!--Graphs-->
 <div class="container-fluid">
-  <div class="row gray-background">
+  <div class="row graphs-bg">
     <div class="col d-none d-sm-block p-4">
       <embed class="custom-graph" src={{bar_chart|safe}} type="image/svg+xml">
     </div>
