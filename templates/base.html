@@ -42,7 +42,7 @@
   <script src="https://cdn.datatables.net/v/bs4/dt-1.10.20/b-1.6.1/r-2.2.3/sp-1.0.1/datatables.min.js"></script>
   <script>var datepicker = flatpickr('#date', { dateFormat: 'Z', inline: true });</script>
   <script src="{{url_for('static', filename='js/main.js')}}"></script>
-  <script>$(document).ready(function () { $('#table_id').DataTable(); });</script>
+  <script>$(document).ready(function () { $('#table_id').DataTable({"lengthChange": false, responsive: true}); });</script>
 </body>
 
 </html>
