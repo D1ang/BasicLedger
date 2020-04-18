@@ -91,9 +91,17 @@ This site was tested across multiple screen sizes on Chrome, Safari and Internet
 To ensure compatibility and responsiveness it's also tested on an android based mobile device (OnePlus5).
 
 ## Bugs:
+Jquery not loading on external files
+
+Jquery 3.5 not loading the navbar
+
 
 ### Bug:
 Solutuion
+I loaded the minified slim version which doesn;t load all the requerements by replacing it with the slim version the bug was fized and external file loading with it.
+
+downgraded Jquery to 3.4.1
+
 
 The following tests have been used to ensure proper site functionality:
 
