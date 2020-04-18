@@ -2,6 +2,7 @@ import os
 import pymongo
 import pygal
 import datetime
+import json
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from pygal.style import Style
@@ -108,7 +109,8 @@ def insert_transaction():
     transactions.insert_one({'transition': request.form.get('transition'),
                              'category_name': request.form.get('category_name'),
                              'details': request.form.get('details'),
-                             'date': datetime.datetime.strptime(request.form.get('date'), '%Y-%m-%dT%H:%M:%S.000Z'),
+                             #'date': datetime.datetime.strptime(request.form.get('date'), '%Y-%m-%dT%H:%M:%S.000Z'),
+                             'date': request.form.get('date'),
                              'amount': float(request.form.get('amount'))})
 
     return redirect(url_for('get_transactions'))
@@ -121,9 +123,14 @@ def edit_transaction(transaction_id):
         {'_id': ObjectId(transaction_id)})
     all_categories = mongo.db.categories.find()
 
-    return render_template('edittransaction.html',
+    print(the_transaction)
+    
+    
+    return json.dumps(the_transaction, default=json_util.default)
+    
+    '''return render_template('edittransaction.html',
                            transaction=the_transaction,
-                           categories=all_categories)
+                           categories=all_categories)'''
 
 
 """-------------------------------------Updates a transaction------------------------------------"""
@@ -148,8 +155,18 @@ def delete_transaction(transaction_id):
     return redirect(url_for('get_transactions'))
 
 
+class JSONEncoder(json.JSONEncoder):
+  def default(self, o):
+      if isinstance(o, ObjectId):
+          return str(o)
+      return json.JSONEncoder.default(self, o)
+
+
 """---------------------------Run the app and set the proper IP + Port---------------------------"""
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
+
+
+
