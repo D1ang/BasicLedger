@@ -1,8 +1,3 @@
-/*------------------------JQuery function to check the amount field for two decimals------------------------*/
-$('.two-decimals').change(function() {
-	this.value = parseFloat(this.value).toFixed(2);
-});
-
 /*----------------------Edit transaction modal and fill the formfields with Json data-----------------------*/
 function editTransaction(id) {
 	$.ajax({
