@@ -6,7 +6,7 @@ body, html {
   padding: 0;
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
-  color: #050607;
+  color: rgb(5,6,7);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,122 +16,123 @@ h1, h2, h3, h4, h5, h6 {
 /*-----------------------------backgrounds colour-----------------------------*/
 
 .navbar-bg {
-  background-color: rgb(84, 201, 123);
+	background-color: rgb(84, 201, 123);
 }
 
 .gray-background {
-  background-color: rgb(238, 238, 238);
+	background-color: rgb(238, 238, 238);
 }
 
 /*----------------------------Custom navbar styling---------------------------*/
 
 .custom-navbar {
-  background-color: rgba(255, 255, 255, 0.2);
-  height: 55px;
-  color: #fff;
+	background-color: rgba(255, 255, 255, 0.2);
+	height: 55px;
+	color: #fff;
 }
 
-.custom-navbar a:link, a:visited, a:active {
-  color: #fff;
-  height: 55px;
+.custom-navbar a:link,
+a:visited,
+a:active {
+	color: #fff;
+	height: 55px;
 }
 
 .custom-navbar a:hover {
-  background-color: rgb(84, 201, 123);
-  height: 55px;
+	background-color: rgb(84, 201, 123);
+	height: 55px;
 }
 
 .custom-navbarLogo {
-  font-family: 'Annie Use Your Telescope', sans-serif;
-  font-size: 2em;
+	font-family: 'Annie Use Your Telescope', sans-serif;
+	font-size: 2em;
 }
 
 .custom-link {
-  margin-top: 14px;
-} 
-
+	margin-top: 14px;
+}
 
 /*---------------------------Custom overview styling--------------------------*/
 
 #dashboard-overview {
-  background-color: rgb(84, 201, 123);
-  border-radius: 0 0 10px 10px;
+	background-color: rgb(84, 201, 123);
+	border-radius: 0 0 10px 10px;
 }
 
 .dashboard-card {
-  background-color: rgb(84, 201, 123);;
+	background-color: rgb(84, 201, 123);
 }
 
 .custom-graph {
-  border-radius: 10px;
-  background-color: #fff;
-  width: 95%;
+	border-radius: 10px;
+	background-color: #fff;
+	width: 95%;
 }
 
 .sidebars {
-  border-left: solid 1px #fff;
-  border-right: solid 1px #fff;
+	border-left: solid 1px #fff;
+	border-right: solid 1px #fff;
 }
 
 /*------------------------Custom radio buttons styling------------------------*/
 
 input.custom-radio-btn {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 label.custom-radio-btn {
-  cursor: pointer;
-  padding: 1px;
-  margin-right: 20px;
-  color: #000;
-  -webkit-transition: 0.15s;
-  -o-transition: 0.15s;
-  transition: 0.15s;
+	cursor: pointer;
+	padding: 1px;
+	margin-right: 20px;
+	color: #000;
+	-webkit-transition: 0.15s;
+	-o-transition: 0.15s;
+	transition: 0.15s;
 }
 
 input.custom-radio-btn:hover + label.custom-radio-btn {
-  color: rgb(40, 167, 69);
+	color: rgb(40, 167, 69);
 }
 
 input.custom-radio-btn:active + label.custom-radio-btn {
-  color: rgba(72, 200, 101);
+	color: rgba(72, 200, 101);
 }
 
 input.custom-radio-btn:checked + label.custom-radio-btn {
-  color: rgb(40, 167, 69);
+	color: rgb(40, 167, 69);
 }
 
 /*-------------------------Datepicker style override--------------------------*/
 
 .flatpickr-calendar {
-  border: 1px solid #ced4da;
-  box-shadow: 0px 0px 0px 0px #fff;
-  width: 418px;
+	border: 1px solid #ced4da;
+	box-shadow: 0px 0px 0px 0px #fff;
+	width: 418px;
 }
 
 .flatpickr-innerContainer {
-  width: 400px;
+	width: 400px;
 }
 
 .flatpickr-rContainer {
-  width: 400px;
+	width: 400px;
 }
 
 .flatpickr-weekdays {
-  width: 400px;
+	width: 400px;
 }
 
 .flatpickr-days {
-  width: 400px;
+	width: 400px;
 }
 
 .dayContainer {
-  width: 600px;
-  max-width: 400px;
+	width: 600px;
+	max-width: 400px;
 }
 
 .flatpickr-day {
-  width: 150px;
-  padding: 15;
-  max-width: 400px;
+	width: 150px;
+	padding: 15;
+	max-width: 400px;
 }
