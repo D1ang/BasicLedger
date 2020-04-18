@@ -19,37 +19,19 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: rgb(84, 201, 123);
 }
 
+.custom-navbar {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
 .gray-background {
 	background-color: rgb(238, 238, 238);
 }
 
 /*----------------------------Custom navbar styling---------------------------*/
 
-.custom-navbar {
-	background-color: rgba(255, 255, 255, 0.2);
-	height: 55px;
-	color: #fff;
-}
-
-.custom-navbar a:link,
-a:visited,
-a:active {
-	color: #fff;
-	height: 55px;
-}
-
-.custom-navbar a:hover {
-	background-color: rgb(84, 201, 123);
-	height: 55px;
-}
-
 .custom-navbarLogo {
 	font-family: 'Annie Use Your Telescope', sans-serif;
 	font-size: 2em;
-}
-
-.custom-link {
-	margin-top: 14px;
 }
 
 /*---------------------------Custom overview styling--------------------------*/
