@@ -7,6 +7,7 @@ body, html {
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
   color: rgb(5,6,7);
+  background-color: rgb(238, 238, 238);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,11 +28,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .custom-navbarLogo {
 	font-family: 'Annie Use Your Telescope', sans-serif;
-	font-size: 2em;
+	font-size: 1.8em;
 }
 
 .custom-navbar {
 	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 0 0 10px 10px;
 }
 
 /*---------------------------Custom overview styling--------------------------*/
@@ -45,15 +47,25 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: rgb(84, 201, 123);
 }
 
-.custom-graph {
-	border-radius: 10px;
-	background-color: #fff;
-	width: 95%;
-}
-
-.sidebars {
+.white-dividers {
 	border-left: solid 1px #fff;
 	border-right: solid 1px #fff;
+}
+
+@media screen and (max-width: 575px) {
+	.white-dividers {
+		border: none;
+	}
+}
+
+.graph-margin {
+  margin: auto;
+  width: 95%;
+}
+
+.custom-graph {
+	border-radius: 10px;
+  background-color: #fff;
 }
 
 /*------------------------Custom radio buttons styling------------------------*/

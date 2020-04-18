@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="card text-center text-white dashboard-card border-0">
-    <div class="card-body sidebars">
+    <div class="card-body white-dividers">
       <h2 class="card-title">Total credit</h2>
       <h5 class="card-text">€ {{credit}}</h5>
     </div>
@@ -25,11 +25,15 @@
 <!--Graphs-->
 <div class="container-fluid">
   <div class="row graphs-bg">
-    <div class="col d-none d-sm-block p-4">
-      <embed class="custom-graph" src={{bar_chart|safe}} type="image/svg+xml">
+    <div class="col-lg-6 col-xs-12 pt-4">
+      <div class="graph-margin">
+        <embed class="custom-graph" src={{bar_chart|safe}} type="image/svg+xml">
+      </div>
     </div>
-    <div class="col p-4">
-      <embed class="custom-graph" src={{pie_chart|safe}} type="image/svg+xml">
+    <div class="col-lg-6 col-xs-12 pt-4">
+      <div class="graph-margin">
+        <embed class="custom-graph" src={{pie_chart|safe}} type="image/svg+xml">
+      </div>
     </div>
   </div>
 </div>
