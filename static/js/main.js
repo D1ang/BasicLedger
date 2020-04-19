@@ -4,11 +4,19 @@ function editTransaction(id) {
 	$.ajax({
 		url: `/edit_transaction/${id}`
 	}).done(function(response) {
-		console.log(response);
-		let updateURL = `/update_transaction/${id}`;
+
+    let data = JSON.parse(response)
+
+    document.getElementById('demo1').value = data.transition;
+    document.getElementById('editCategory').value = data.category_name;
+    document.getElementById('editDescription').value = data.details;
+    document.getElementById('editDate').value = data.date;
+    document.getElementById('editAmount').value = data.amount;
+
+    let updateURL = `/update_transaction/${id}`;
 		$('#editForm').attr('action', updateURL);
 		$('#EditTransactionModal').modal('show');
-	});
+  });
 }
 
 /*---------------------------Loading the libraries for the datepicker & DataTable---------------------------*/
