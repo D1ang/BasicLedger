@@ -67,6 +67,7 @@ def get_transactions():
     return render_template('transactions.html',
                            transactions=mongo.db.transactions.find(),
                            categories=mongo.db.categories.find(),
+                           editCategories=mongo.db.categories.find(),
                            debit=debit_total(),
                            credit=credit_total(),
                            total=grand_total())
@@ -122,11 +123,11 @@ def edit_transaction(transaction_id):
 def update_transaction(transaction_id):
     transactions = mongo.db.transactions
     transactions.update({'_id': ObjectId(transaction_id)},
-                        {'transition': request.form.get('transition'),
-                         'category_name': request.form.get('category_name'),
-                         'details': request.form.get('details'),
-                         'date': request.form.get('date'),
-                         'amount': request.form.get('amount')})
+                        {'transition': request.form.get('editTransition'),
+                         'category_name': request.form.get('editCategory'),
+                         'details': request.form.get('editDescription'),
+                         'date': request.form.get('editDate'),
+                         'amount': request.form.get('editAmount')})
 
     return redirect(url_for('get_transactions'))
 
