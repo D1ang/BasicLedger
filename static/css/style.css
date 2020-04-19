@@ -68,6 +68,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
 }
 
+/*-----------------------Bootstrap modal style override-----------------------*/
+
+.modal-header {
+  margin: 0 38px 0 38px;
+  padding-left: 0;
+}
+
 /*------------------------Custom radio buttons styling------------------------*/
 
 input.custom-radio-btn {
