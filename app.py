@@ -102,8 +102,8 @@ def grand_total():
 def insert_transaction():
     transactions = mongo.db.transactions
     transactions.insert_one({'transition': request.form.get('transition'),
-                             'category_name': request.form.get('category_name'),
-                             'details': request.form.get('details'),
+                             'category_name': request.form.get('category'),
+                             'details': request.form.get('description'),
                              'date': request.form.get('date'),
                              'amount': float(request.form.get('amount'))})
 
