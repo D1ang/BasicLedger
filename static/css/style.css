@@ -79,6 +79,22 @@ h1, h2, h3, h4, h5, h6 {
   width: 130px;
 }
 
+.custom-search {
+  width: 200px;
+}
+
+@media screen and (max-width: 375px) {
+	.custom-search {
+		width: 180px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.custom-search {
+		width: 142px;
+	}
+}
+
 /*------------------------Custom radio buttons styling------------------------*/
 
 input.custom-radio-btn {
