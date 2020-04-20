@@ -22,7 +22,7 @@ function editTransaction(id) {
 /*---------------------------Loading the libraries for the datepicker & DataTable---------------------------*/
 
 $(document).ready(function() {
-	var datepicker = flatpickr('#date', { dateFormat: 'j F, Y', inline: true });
+	var datepicker = flatpickr('#date', { dateFormat: 'j F, Y' });
 
 	var table = $('#transactionTable').DataTable({
 		lengthChange: false,
