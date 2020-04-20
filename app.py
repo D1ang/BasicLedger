@@ -2,6 +2,7 @@ import os
 import pymongo
 import pygal
 import json
+import locale
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from pygal.style import Style
@@ -18,6 +19,9 @@ app.config['MONGO_DBNAME'] = 'database'
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
+
+# Set the local region for proper currency
+locale.setlocale(locale.LC_ALL, '' )
 
 """--------------------------------Loads the Bar chart with Pygal--------------------------------"""
 
@@ -54,9 +58,9 @@ def pie_chart():
 @app.route('/get_dashboard')
 def get_dashboard():
     return render_template('dashboard.html',
-                           debit=debit_total(),
-                           credit=credit_total(),
-                           total=grand_total(),
+                           debit=locale.currency(debit_total(), grouping = True),
+                           credit=locale.currency(credit_total(), grouping = True),
+                           total=locale.currency(grand_total(), grouping = True),
                            bar_chart=bar_chart(),
                            pie_chart=pie_chart())
 
@@ -67,10 +71,7 @@ def get_transactions():
     return render_template('transactions.html',
                            transactions=mongo.db.transactions.find(),
                            categories=mongo.db.categories.find(),
-                           editCategories=mongo.db.categories.find(),
-                           debit=debit_total(),
-                           credit=credit_total(),
-                           total=grand_total())
+                           editCategories=mongo.db.categories.find())
 
 """----------------------Calculates the total of all the DEBIT transactions----------------------"""
 
@@ -93,7 +94,7 @@ def credit_total():
 """----------------------Calculates the GRAND total of all the transactions----------------------"""
 
 def grand_total():
-    calc = debit_total() - credit_total()
+    calc = float(debit_total() - credit_total())
     return calc
 
 """-------------------------------------Creates a transaction------------------------------------"""
@@ -105,7 +106,7 @@ def insert_transaction():
                              'category_name': request.form.get('category'),
                              'details': request.form.get('description'),
                              'date': request.form.get('date'),
-                             'amount': float(request.form.get('amount'))})
+                             'amount': round(float(request.form.get('amount')), 2)})
 
     return redirect(url_for('get_transactions'))
 
@@ -127,7 +128,7 @@ def update_transaction(transaction_id):
                          'category_name': request.form.get('editCategory'),
                          'details': request.form.get('editDescription'),
                          'date': request.form.get('editDate'),
-                         'amount': request.form.get('editAmount')})
+                         'amount': round(float(request.form.get('editAmount')), 2)})
 
     return redirect(url_for('get_transactions'))
 
