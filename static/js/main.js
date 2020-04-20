@@ -26,7 +26,8 @@ $(document).ready(function() {
 
 	var table = $('#transactionTable').DataTable({
 		lengthChange: false,
-		dom: 'lrtip',
+    dom: 'lrtip',
+    info: false,
 		responsive: true,
 		columns: [
 			{ responsivePriority: 1 },
