@@ -7,11 +7,11 @@ function editTransaction(id) {
     
     let data = JSON.parse(response);
 
-		document.getElementById('demo1').value = data.transition;
-		document.getElementById('editCategory').value = data.category_name;
-		document.getElementById('editDescription').value = data.details;
-		document.getElementById('editDate').value = data.date;
-		document.getElementById('editAmount').value = data.amount;
+    document.editForm.editTransition.value = data.transition;             // Set transition radio value (on form name="editForm")
+		document.getElementById('editCategory').value = data.category_name;   // Set category value
+		document.getElementById('editDescription').value = data.details;      // Set description value
+		document.getElementById('editDate').value = data.date;                // Set date value
+		document.getElementById('editAmount').value = data.amount;            // Set amount value
 
 		let updateURL = `/update_transaction/${id}`;
 		$('#editForm').attr('action', updateURL);
