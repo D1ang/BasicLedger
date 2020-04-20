@@ -10,7 +10,7 @@
     <div class="col">
       <div class="btn-toolbar mt-5 float-right" role="toolbar">
         <div class="btn-group mr-3" role="group">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#TransactionModal">Add Transaction</button>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#transactionModal">Add Transaction</button>
         </div>
         <div class="input-group">
           <div class="input-group-prepend">
@@ -64,53 +64,59 @@
 </div>
 
 <!-- Add Transaction Modal -->
-<div class="modal fade" id="TransactionModal" tabindex="-1" role="dialog" aria-labelledby="TransactionModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="transactionModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <form action="{{url_for('insert_transaction')}}" method="POST">
-        <div class="modal-header mx-4">
-          <h5 class="modal-title text-uppercase my-2" id="TransactionModalLabel">Add Transaction</h5>
+        <div class="modal-header">
+          <h5 class="modal-title text-uppercase my-1">Add Transaction</h5>
         </div>
         <div class="modal-body mx-4">
 
-          <!-- Modal Form inputfields-->
           <div class="form-group my-2">
             <input type="radio" class="form-check-input custom-radio-btn" id="debit" name="transition" value="debit">
-            <label for="debit" class="form-check-label custom-radio-btn"><i class="fas fa-check fa-1x"></i> Debit</label>
-            <input type="radio" class="form-check-input custom-radio-btn" id="credit" name="transition" value="credit" checked>
-            <label for="credit" class="form-check-label custom-radio-btn"><i class="fas fa-check fa-1x"></i> Credit</label>
+            <label for="debit" class="form-check-label custom-radio-btn"><i class="fas fa-check fa-1x"></i>Debit</label>
+            <input type="radio" class="form-check-input custom-radio-btn" id="credit" name="transition" value="credit">
+            <label for="credit" class="form-check-label custom-radio-btn"><i class="fas fa-check fa-1x"></i>Credit</label>
           </div>
+
           <div class="form-group mt-4">
             <label for="category">Transaction</label>
-            <select class="form-control" id="category_name" name="category_name">
-              <option value="" disabled selected>Choose category</option>
+            <select class="form-control" id="category" name="category">
               {% for category in categories %}
                 <option value="{{category.category_name}}">{{category.category_name}}</option>
               {% endfor %}
             </select>
           </div>
+
           <div class="form-group">
-            <label for="details">Details</label>
-            <input type="text" class="form-control" id="details" name="details">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description" value="description">
           </div>
+
           <div class="form-group">
             <label for="date">Date</label>
-            <input type="date" class="form-control d-none" id="date" name="date" placeholder="DD/MM/YYY">
+            <input type="date" class="form-control" id="date" name="date" value="date">
           </div>
-          <div class="form-group">
+
+          <div class="form-group pb-2">
             <label for="amount">Amount</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text">€</span>
               </div>
-              <input class="form-control" type="number" id="amount" name="amount" value="0,00" placeholder="0,00" min="0" step="any" required>
+              <input class="form-control" type="number" id="amount" name="amount" value="amount" min="0" step="any" required>
               <div class="input-group-append">
                 <span class="input-group-text">,00</span>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-success text-uppercase" name="action">Add</button>
+
+          <div class="text-center my-3">
+            <button type="button" class="btn btn-secondary custom-btn mr-3" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-success custom-btn" name="action">Add</button>
+          </div>
+
         </div>
       </form>
     </div>
@@ -153,7 +159,7 @@
             <input type="text" class="form-control" id="editDate" name="editDate" value="editDate">
           </div>
 
-          <div class="form-group">
+          <div class="form-group pb-2">
             <label for="editAmount">Amount</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -166,9 +172,9 @@
             </div>
           </div>
 
-          <div class="text-center">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-success" name="action">Save changes</button>
+          <div class="text-center my-3">
+            <button type="button" class="btn btn-secondary custom-btn mr-3" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-success custom-btn" name="action">Save changes</button>
           </div>
 
         </div>
