@@ -1,7 +1,7 @@
-# BasicLedger
+# EasyLedger
 **Milestone project 3: Data Centric Development - Code Institute**
 
-During these strange times with Covid-19 lockdowns, individuals and families
+During these strange times with all the global lockdowns, individuals and families
 want to know how they are doing financially.
 In these times of insucrity I want to provide a tool that is easy to understand and able to provide
 a clear overview of the cashflow.
@@ -11,7 +11,7 @@ In short:
 - Providing a clear overview on a dashboard with graphs.
 
 ## Demo
-A live demo version can be found **[here](https://d1ang.github.io/BasicLedger/)**
+A live demo version can be found **[here](https://easyledgr.herokuapp.com/)**
 
 ![Design]()
 
