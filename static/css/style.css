@@ -95,6 +95,12 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.custom-date {
+  padding-left: 10px;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px 0 0 4px;
+}
+
 /*------------------------Custom radio buttons styling------------------------*/
 
 input.custom-radio-btn {

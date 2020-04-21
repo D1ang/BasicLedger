@@ -28,8 +28,8 @@ function editTransaction(id) {
 $(document).ready(function() {
   
   //Datepicker settings
-  flatpickr('#date', { dateFormat: 'j F, Y' });
-  flatpickr('#editDate', { dateFormat: 'j F, Y' });
+  flatpickr('#date', { dateFormat: 'j F, Y', disableMobile: true });
+  flatpickr('#editDate', { dateFormat: 'j F, Y', disableMobile: true });
 
   //DataTable settings
 	var table = $('#transactionTable').DataTable({
