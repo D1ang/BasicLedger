@@ -2,4 +2,5 @@ __pycache__
 env
 env.py
 .vscode
+.gitignore
 test
