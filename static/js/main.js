@@ -1,19 +1,19 @@
-/*-------------------Open the edit transaction modal and fill the formfields with Json data-------------------*/
+/*-------------Open the edit transaction modal and fill the formfields with Json data-------------*/
 
 function editTransaction(id) {
 	$.ajax({
-		url: `/edit_transaction/${id}`
+    url: `/edit_transaction/${id}`
 	}).done(function(response) {
     
     //Json string to object
     let data = JSON.parse(response);
 
-    //Grab edit fields from Json data
-    document.editForm.editTransition.value = data.transition;             // Set transition radio value (on form name="editForm")
-		document.getElementById('editCategory').value = data.category_name;   // Set category value
-		document.getElementById('editDescription').value = data.details;      // Set description value
-    document.getElementById('editDate').value = data.date;                // Set date value
-		document.getElementById('editAmount').value = data.amount;            // Set amount value
+    //Grab fields from Json data
+    document.editForm.editTransition.value = data.transition;
+		document.getElementById('editCategory').value = data.category_name;
+		document.getElementById('editDescription').value = data.details;
+    document.getElementById('editDate').value = data.date;
+		document.getElementById('editAmount').value = data.amount;
 
     // transaction record ID link
 		let updateURL = `/update_transaction/${id}`;
@@ -22,7 +22,7 @@ function editTransaction(id) {
 	});
 }
 
-/*------------------------Opens the delete transaction modal and finds the record ID------------------------*/
+/*------------------Opens the "delete transaction modal" and finds the record ID------------------*/
 
 function deleteTransaction(id) {
 	$.ajax({
@@ -36,7 +36,7 @@ function deleteTransaction(id) {
 	});
 }
 
-/*---------------------------Loading the libraries for the datepicker & DataTable---------------------------*/
+/*----------------------Loading the libraries for the datepicker & DataTable----------------------*/
 
 $(document).ready(function() {
   
