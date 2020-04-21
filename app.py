@@ -21,7 +21,7 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 mongo = PyMongo(app)
 
 # Sets the local region for proper currency
-locale.setlocale(locale.LC_ALL, '')
+locale.setlocale(locale.LC_ALL, 'nl_NL')
 
 """--------------------------------Loads the Bar chart with Pygal--------------------------------"""
 
