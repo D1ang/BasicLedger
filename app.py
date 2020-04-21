@@ -134,7 +134,7 @@ def update_transaction(transaction_id):
 
 """-------------------------Deletes a transaction by searching on it's id------------------------"""
 
-@app.route('/delete_transaction/<transaction_id>')
+@app.route('/delete_transaction/<transaction_id>', methods=['POST'])
 def delete_transaction(transaction_id):
     mongo.db.transactions.remove({'_id': ObjectId(transaction_id)})
     return redirect(url_for('get_transactions'))

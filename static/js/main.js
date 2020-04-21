@@ -7,7 +7,6 @@ function editTransaction(id) {
     
     //Json string to object
     let data = JSON.parse(response);
-    console.log(data)
 
     //Grab edit fields from Json data
     document.editForm.editTransition.value = data.transition;             // Set transition radio value (on form name="editForm")
@@ -19,7 +18,21 @@ function editTransaction(id) {
     // transaction record ID link
 		let updateURL = `/update_transaction/${id}`;
 		$('#editForm').attr('action', updateURL);
-		$('#EditTransactionModal').modal('show');
+		$('#editTransactionModal').modal('show');
+	});
+}
+
+/*------------------------Opens the delete transaction modal and finds the record ID------------------------*/
+
+function deleteTransaction(id) {
+	$.ajax({
+    url: `/edit_transaction/${id}`
+	}).done(function(response) {
+
+    // transaction record ID link   
+    let updateURL = `/delete_transaction/${id}`;
+		$('#deleteForm').attr('action', updateURL);
+		$('#deleteTransactionModal').modal('show');
 	});
 }
 
