@@ -132,7 +132,7 @@ The following tests have been used to ensure proper site functionality:
 - [Visual Studio Code](https://code.visualstudio.com/): Using the built-in tools to test on proper code.
 
 ## Deployment
-The example of this tool is hosted by using Heroku and Mongo Atlas, this code is deployed to GitHub directly from the master branch.
+The example of this code is hosted by using Heroku and Mongo Atlas, this code is deployed to GitHub directly from the master branch.
 The deployed site will update automatically upon new commits to the master branch.
 
 To run locally, you can clone this repository directly into the editor of your choice by entering
@@ -143,12 +143,13 @@ When the code is downloaded as a .zip it can be unzipped.
 To get it up and running some extra steps need to be taken as will be explained in the following text:
 
 - The code will be executed in the browser that is set as main browser, this can be Chrome or one of the other available browsers.
-- This tool will use a Mongo database which can be running on a local machine or on Mongo's Atlas platform.
+- This code will use a Mongo database which can be running on a local machine or on Mongo's Atlas platform.
 - I advise to use [Mongo Atlas](https://www.mongodb.com/cloud/atlas) As it is quick, easy and `Free`
 
 - When a mongo server has been created the following collection needs to be created: `easyLedger`
 - After the collection is created the following databases need to be made: `categories` and `transactions`
-- When those are in place some categories need to be added to the categories database, (like example: Creditcard, Income, Other)
+- When those are in place some categories need to be added to the categories database, 
+  (like for example: Creditcard, Income, Other)
 
 Now that Mongo is up and running, we need to create a connection to it.
 For running the code on a non-Heroku server the `env.py` file needs to be created in the root folder of the code,
