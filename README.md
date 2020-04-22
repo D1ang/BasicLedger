@@ -123,7 +123,7 @@ By using string-based dates the DataTables library can easily search on the mont
 
 ### PyGal graphs not loading on Microsoft Edge
 When testing the code on Microsoft's Edge browser the PyGal graphs wouldn't load.
-After a search session the following explanaition came up from [Stack overflow](https://stackoverflow.com/questions/43918200/pygal-charts-not-working-on-internet-explorer-11)
+After a search session the following explanation came up from [Stack overflow](https://stackoverflow.com/questions/43918200/pygal-charts-not-working-on-internet-explorer-11)
 ```
 IE has security zones and restrictions the mime-types that embed objects can use. 
 embed tags need both the src and type attributes to match mime-types. 
@@ -132,8 +132,6 @@ embed tags need both the src and type attributes to match mime-types.
 So after changing the:
 `<embed class="custom-graph" src={{pie_chart|safe}} type="image/svg+xml">` to
 `<img class="custom-graph" src={{pie_chart|safe}} type="image/svg+xml">` the bug was fixed and the graphs started to work.
-
-
 
 The following tests have been used to ensure proper site functionality:
 
