@@ -5,7 +5,7 @@ function editTransaction(id) {
     url: `/edit_transaction/${id}`
   }).done(function(response) {
     
-    //Json string to object
+    //Json string to an object
     let data = JSON.parse(response);
 
     //Grab fields from Json data
