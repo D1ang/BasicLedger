@@ -18,7 +18,7 @@ A live demo version can be found **[here](https://easyledgr.herokuapp.com/)**
 ## UX
 To make the tool as clear as possible to the end-user a basic but very clean design has been chosen.
 Options are minimalistic and the end-user will not be overloaded with options to choose from.
-The form modals have been built up in an easy to understand logic.
+The form modals have been built with this in mind and have an easy to understand logic.
 
 ## User stories
 With years of home accounting experience, I have built a well-known form and work ethic in creating a basic accounting sheet in Excel.
@@ -54,7 +54,7 @@ The colours are almost non-existent a very clean minimalist design has been chos
 Users will not be scared or afraid to use the tool by this easy to understand design.
 The font Quicksand had been chosen because of its light thin look and nice round corners that fits perfectly to the overall design.
 The base colour is green which is most associated with: Harmony, safety, balanced, and hope.
-For the table buttons the colour blue is used to stand out and grab the end user’s attention in the table.
+For the table buttons the colour blue is used to stand out and grab the end-user’s attention in the data table.
 
 ## Technologies
 1.  HTML - *To create the basics*
@@ -64,7 +64,7 @@ For the table buttons the colour blue is used to stand out and grab the end user
 5.  MongoDB - *Opensource database to save the transactions*
 6.  Flask - *Micro web framework in python*
 7.  Bootstrap - *To make the design responsive*
-8.  Font Awesome - *Easy icon access for the gender icons*
+8.  Font Awesome - *Easy icon access for the icons*
 9.  Figma - *To create a wireframe*
 
 ### JavaScript Libraries
@@ -88,16 +88,16 @@ Transactions can be created, read, updated, and deleted (CRUD) The table will ta
 - Release 2.0 - Dashboard with graphs overview
 
 ### Features Left to Implement
-In the future I would like to add a login feature so the Ledger can be secured and have multi-user support.
-Also, we would like to add some animations to the ledger to make a nicer user experience.
+In the future I would like to add a login feature so the ledger can be secured and have multi-user support.
+Also, I would like to add some animations to the ledger to make a nicer user experience.
 Extra options I would like to add is a separate credit card overview, monthly overview, print to pdf and more graphs.
 
 ## Testing
 All fields will function, and everything will be properly written to a Mongo database.
 
-This site was tested across multiple screen sizes on Chrome, Safari, and Internet Explorer. To ensure compatibility and responsiveness it is also tested on an android based mobile device (OnePlus5). When the webpage is visited on larger screens the shirt sample will be shown on the right side but will be placed on the bottom on smaller screens.
+This site was tested across multiple screen sizes on Chrome, Safari, and Internet Explorer. To ensure compatibility and responsiveness it is also tested on an android based mobile device (OnePlus5).
 
-The tool has been bug tested by several user on different ages and countries. The choice for not using Jasmine has been made. Jasmine is not easy to understand and will not give the understandable feedback that an end-user can provide.
+The tool has been bug tested by several users with different ages and from different countries. The choice for not using Jasmine has been made. Jasmine is not easy to understand and will not give the understandable feedback that an end-user can provide.
 
 ## Bugs
 
@@ -106,20 +106,20 @@ I loaded the minified slim version which does not load all the requirements.
 By replacing it with just the slim version the bug was fixed and external file loading with it.
 
 ### jQuery 3.5 not loading the navbar
-From some reason still unclear the latest version of jQuery has a bug that the bootstrap navbar toggler stops working.
-It is clickable but I will not do anything or provides any errors on the console.
+From some reason still unclear the latest version of jQuery has a bug that prevents the bootstrap navbar toggler from working.
+It is clickable but I will not do anything an does not provide any errors on the console.
 By downgrading jQuery to 3.4.1 the bug is fixed and the Bootstrap navbar toggler functions as it should.
 
 ### Locale show improper currency on Heroku server
-As functions properly on a local server after deploying the code to Heroku the currency changed to US dollar.
+As functions properly on a local server after deploying the code to Heroku the currency changed to US dollars.
 Although the ledger will mostly be used in the EURO region, I changed `locale.setlocale(locale.LC_ALL, '')` to `locale.setlocale(locale.LC_ALL, 'en_IE.utf8')`
-To force it to load the EURO currency on the Heroku server. I need to find a different solution for a proper fix eventually.
+to force it to load the EURO currency on Heroku servers. I need to find a different solution for a proper fix eventually.
 
 ### The ISOdate adventure
 I tried to use ISOdates but with the current knowledge was not successful to properly apply them.
 MongoDB would accept the input as an ISOdate but returning them to readable dates in DataTables was a bit problematic.
 I do understand that it would be a better use of code, but I went around the problem by using a string for the dates.
-By using string-based dates the DataTables library can easily search on the month name, which would be an extra bonus in usage.
+By using string-based dates the DataTables library can easily search on the month name, which is an extra bonus in usage.
 
 The following tests have been used to ensure proper site functionality:
 
