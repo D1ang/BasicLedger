@@ -144,7 +144,7 @@ To get it up and running some extra steps need to be taken as will be explained 
 
 - The code will be executed in the browser that is set as main browser, this can be Chrome or one of the other available browsers.
 - This code will use a Mongo database which can be running on a local machine or on Mongo's Atlas platform.
-- I advise to use [Mongo Atlas](https://www.mongodb.com/cloud/atlas) As it is quick, easy and `Free`
+- I advise to use [Mongo Atlas](https://www.mongodb.com/cloud/atlas) As it is quick, easy and **free**
 
 - When a mongo server has been created the following collection needs to be created: `easyLedger`
 - After the collection is created the following databases need to be made: `categories` and `transactions`
@@ -161,7 +161,7 @@ os.environ["MONGO_URI"] = 'YOUR MONGODB SERVER URL'
 ```
 
 Change the **"YOUR MONGODB SERVER URL"** to the URL of your Mongo database and you're good to go.
-When using Heroku the `env.py` does **Not** need to be created. On Heroku you can set up Config Vars under the settings option.
+When using Heroku the `env.py` does **not** need to be created. On Heroku you can set up Config Vars under the settings option.
 The following Config Vars need to be set:
 
 ```
