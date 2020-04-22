@@ -20,7 +20,7 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
-# Sets the local region for proper currency
+# Sets the local region for proper currency in euro's
 locale.setlocale(locale.LC_ALL, 'en_IE.utf8')
 
 """--------------------------------Loads the Bar chart with Pygal--------------------------------"""
@@ -115,7 +115,6 @@ def insert_transaction():
 @app.route('/edit_transaction/<transaction_id>')
 def edit_transaction(transaction_id):
     the_transaction = mongo.db.transactions.find_one({'_id': ObjectId(transaction_id)})
-    all_categories = mongo.db.categories.find()
     return json.dumps(the_transaction, default=json_util.default)
 
 """-------------------------------------Updates a transaction------------------------------------"""
