@@ -82,7 +82,7 @@
 
           <div class="form-group mt-4">
             <label for="category">Transaction</label>
-            <select class="form-control" id="category" name="category">
+            <select class="form-control" id="category" name="category" required>
                 <option value="" disabled selected>Choose category</option>
               {% for category in categories %}
                 <option value="{{category.category_name}}">{{category.category_name}}</option>
@@ -92,7 +92,7 @@
 
           <div class="form-group">
             <label for="description">Description</label>
-            <input type="text" class="form-control" id="description" name="description" placeholder="Describe the transaction">
+            <input type="text" class="form-control" id="description" name="description" placeholder="Describe the transaction" required>
           </div>
 
           <div class="form-group">
@@ -148,7 +148,7 @@
 
           <div class="form-group mt-4">
             <label for="editCategory">Transaction</label>
-            <select class="form-control" id="editCategory" name="editCategory">
+            <select class="form-control" id="editCategory" name="editCategory" required>
               {% for category in editCategories %}
                 <option value="{{category.category_name}}">{{category.category_name}}</option>
               {% endfor %}
@@ -157,7 +157,7 @@
 
           <div class="form-group">
             <label for="editDescription">Description</label>
-            <input type="text" class="form-control" id="editDescription" name="editDescription">
+            <input type="text" class="form-control" id="editDescription" name="editDescription" required>
           </div>
 
           <div class="form-group">
