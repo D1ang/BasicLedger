@@ -132,27 +132,42 @@ The following tests have been used to ensure proper site functionality:
 - [Visual Studio Code](https://code.visualstudio.com/): Using the built-in tools to test on proper code.
 
 ## Deployment
-This site is hosted using Heroku and Mongo Atlas, this code is deployed to GitHub directly from the master branch.
+The example of this tool is hosted by using Heroku and Mongo Atlas, this code is deployed to GitHub directly from the master branch.
 The deployed site will update automatically upon new commits to the master branch.
 
 To run locally, you can clone this repository directly into the editor of your choice by entering
 `git clone https://github.com/D1ang/EasyLedger.git` into your terminal.
 To cut ties with this GitHub repository, type `git remote rm origin` into the terminal.
 
-When the code is downloaded as a .zip it can be unzipped to get is up and running some extra steps need to be taken as will be explained in the following text.
-The code will be executed in the browser that is set as main browser, this can be Chrome or one of the other available browsers.
-As this code will use Mongo a Mongo database needs to be used. this can be an installed Database, one running on a local server or one provided on Mongo's Atlas platform. It is up to you there are allot of guides on the internet on creating a MongoDB I advise to use MongoDB Atlas[link](https://www.mongodb.com/cloud/atlas) As it is quick, easy and `FREE`
+When the code is downloaded as a .zip it can be unzipped.
+To get it up and running some extra steps need to be taken as will be explained in the following text:
 
-When a mongo server has been created the following collection needs to be created: `easyLedger`
-After the database is created the following databases need to be made: `categories` and `transactions`
-When those are in place some categories need to be added to the categories.
+- The code will be executed in the browser that is set as main browser, this can be Chrome or one of the other available browsers.
+- This tool will use a Mongo database which can be running on a local machine or on Mongo's Atlas platform.
+- I advise to use [Mongo Atlas](https://www.mongodb.com/cloud/atlas) As it is quick, easy and `Free`
+
+- When a mongo server has been created the following collection needs to be created: `easyLedger`
+- After the collection is created the following databases need to be made: `categories` and `transactions`
+- When those are in place some categories need to be added to the categories database, (like example: Creditcard, Income, Other)
+
 Now that Mongo is up and running, we need to create a connection to it.
-For running the code on a non-Heroku server the `env.py` file needs to be created in the root of the code, in this file needs to be the following:
-`import os`
-`os.environ["MONGO_URI"] = 'YOUR MONGODB SERVER URL'`
+For running the code on a non-Heroku server the `env.py` file needs to be created in the root folder of the code,
+in this file needs to be the following code:
 
-Change the "YOUR MONGODB SERVER URL" to the URL of your Mongo database.
-I kept the .vscode available to so the code can be run in debug mode easily and tested. It is advisable to create a virtual environment in VS code.
+```
+import os
+os.environ["MONGO_URI"] = 'YOUR MONGODB SERVER URL'
+```
+
+Change the **"YOUR MONGODB SERVER URL"** to the URL of your Mongo database and you're good to go.
+When using Heroku the `env.py` does **Not** need to be created. On Heroku you can set up Config Vars under the settings option.
+The following Config Vars need to be set:
+
+```
+IP:         0.0.0.0
+MONGO_URI:  "YOUR MONGODB SERVER URL"
+PORT:       5000
+```
 
 ## Credits
 
