@@ -6,10 +6,10 @@ $(document).ready(function() {
   /*Work-around by user "qbolt" from the Flatpickr Github "Issues" page.
     It prevents manually edit the date field while setting readonly to false, allowing for default validation. */
 
-  $('#date').on('focus', ({ currentTarget }) => $(currentTarget).blur())
-  $("#date").prop('readonly', false)
-  $('#editDate').on('focus', ({ currentTarget }) => $(currentTarget).blur())
-  $("#editDate").prop('readonly', false)
+  $('#date').on('focus', ({ currentTarget }) => $(currentTarget).blur());
+  $("#date").prop('readonly', false);
+  $('#editDate').on('focus', ({ currentTarget }) => $(currentTarget).blur());
+  $("#editDate").prop('readonly', false);
 
   //DataTable settings
   var table = $('#transactionTable').DataTable({
