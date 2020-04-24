@@ -30,7 +30,9 @@ def bar_chart():
     ]))
 
     custom_style = Style(plot_background='transparent')
-    chart = pygal.Bar(style=custom_style, title=u'Transactions', show_legend=True)
+    chart = pygal.Bar(style=custom_style,
+                      title=u'Transactions',
+                      show_legend=True)
 
     credit_subtotals = [record['subtotal'] for record in credit_data]
 
@@ -42,7 +44,9 @@ def bar_chart():
 
 def pie_chart():
     custom_style = Style(plot_background='transparent')
-    chart = pygal.Pie(style=custom_style, title=u'Total balance', inner_radius=.65, show_legend=True)
+    chart = pygal.Pie(style=custom_style,
+                      title=u'Total balance',
+                      inner_radius=.65, show_legend=True)
 
     chart.add('Credit', credit_total())
     chart.add('Debit', debit_total())
@@ -54,9 +58,9 @@ def pie_chart():
 @app.route('/')
 def get_dashboard():
     return render_template('dashboard.html',
-                           debit=locale.currency(debit_total(), grouping = True),
-                           credit=locale.currency(credit_total(), grouping = True),
-                           total=locale.currency(grand_total(), grouping = True),
+                           debit=locale.currency(debit_total()),
+                           credit=locale.currency(credit_total()),
+                           total=locale.currency(grand_total()),
                            bar_chart=bar_chart(),
                            pie_chart=pie_chart())
 
