@@ -54,26 +54,25 @@ The colours are almost non-existent a very clean minimalist design has been chos
 Users will not be scared or afraid to use the tool by this easy to understand design.
 The font Quicksand had been chosen because of its light thin look and nice round corners that fits perfectly to the overall design.
 The base colour is green which is most associated with: Harmony, safety, balanced, and hope.
-For the table buttons the colour blue is used to stand out and grab the end-user’s attention in the data table.
 
 ## Technologies
-1.  HTML - *To create the basics*
-2.  CSS - *To improve placements and design*
-3.  JavaScript - *The engine to create user interaction*
-4.  Python - *To communicate to the backend*
-5.  MongoDB - *Opensource database to save the transactions*
-6.  Flask - *Micro web framework in python*
-7.  Bootstrap - *To make the design responsive*
-8.  Font Awesome - *Easy icon access for the icons*
-9.  Figma - *To create a wireframe*
+1.  Figma - *To create a wireframe*
+2.  HTML - *To create the basics*
+3.  CSS - *To improve placements and design*
+4.  JavaScript - *The engine to create user interaction*
+5.  Python 3.8.2 - *To communicate to the backend*
+6.  MongoDB 4.2.6 - *Opensource database to save the transactions*
+7.  Flask 1.1.2 - *Micro web framework in python*
+8.  Bootstrap 4.4.1 - *To make the design responsive*
+9.  Font Awesome 5.13.0 - *Easy icon access for the icons*
 
 ### JavaScript Libraries
-1. jQuery - *To improve input field feedback*
-2. flatpickr - *lightweight, powerful JavaScript datetimepicker with no dependencies*
-3. DataTables - *Adds advanced interaction controls to HTML tables*
+1. jQuery 3.4.1 - *To improve input field feedback*
+2. flatpickr 4.6.3 - *lightweight, powerful JavaScript datetimepicker with no dependencies*
+3. DataTables 1.10.20 - *Adds advanced interaction controls to HTML tables*
 
 ### Python Plugins
-1. Pygal - *Sexy python charting*
+1. Pygal 2.4.0 - *Sexy python charting*
 2. Json - *To grab the data from MongoDB in Json format*
 3. Locale - *To set proper currency*
 
