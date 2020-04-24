@@ -1,6 +1,7 @@
-__pycache__
+# dependencies
 env
 env.py
+
+#visual studio code
+__pycache__
 .vscode
-.gitignore
-test
