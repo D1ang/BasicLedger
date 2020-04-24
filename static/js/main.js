@@ -1,8 +1,5 @@
-/*----------------------Loading the libraries for the datepicker & DataTable----------------------*/
-
 $(document).ready(function() {
   
-  //Datepicker settings
   flatpickr('#date', { dateFormat: 'j F, Y', disableMobile: true });
   flatpickr('#editDate', { dateFormat: 'j F, Y', disableMobile: true });
 
