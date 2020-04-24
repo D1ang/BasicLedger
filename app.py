@@ -19,11 +19,10 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
-# Sets the local region for proper currency in euro's
 locale.setlocale(locale.LC_ALL, 'en_IE.utf8')
 
-"""--------------------------------Loads the Bar chart with Pygal--------------------------------"""
 
+#Loads the Bar- and Piechart for the dashboard
 def bar_chart():
     credit_data = list(mongo.db.transactions.aggregate([
         {'$match': {'transition': 'credit'}},
@@ -40,7 +39,6 @@ def bar_chart():
     chart_data = chart.render_data_uri()
     return chart_data
 
-"""--------------------------------Loads the Pie chart with Pygal--------------------------------"""
 
 def pie_chart():
     custom_style = Style(plot_background='transparent')
@@ -51,8 +49,8 @@ def pie_chart():
     chart_data = chart.render_data_uri()
     return chart_data
 
-"""--------------------------------------Loads the dashboard-------------------------------------"""
 
+#Page views
 @app.route('/')
 def get_dashboard():
     return render_template('dashboard.html',
@@ -62,7 +60,6 @@ def get_dashboard():
                            bar_chart=bar_chart(),
                            pie_chart=pie_chart())
 
-"""----------------------------------Loads the Transactions page---------------------------------"""
 
 @app.route('/get_transactions')
 def get_transactions():
@@ -71,8 +68,8 @@ def get_transactions():
                            categories=mongo.db.categories.find(),
                            editCategories=mongo.db.categories.find())
 
-"""----------------------Calculates the total of all the DEBIT transactions----------------------"""
 
+#Calculates the totals for the dashboard view
 def debit_total():
     transaction_amount = []
 
@@ -80,7 +77,6 @@ def debit_total():
         transaction_amount.append(float(record['amount']))
     return sum(transaction_amount)
 
-"""----------------------Calculates the total of all the CREDIT transactions---------------------"""
 
 def credit_total():
     transaction_amount = []
@@ -89,14 +85,13 @@ def credit_total():
         transaction_amount.append(float(record['amount']))
     return sum(transaction_amount)
 
-"""----------------------Calculates the GRAND total of all the transactions----------------------"""
 
 def grand_total():
     calc = float(debit_total() - credit_total())
     return calc
 
-"""-------------------------------------Creates a transaction------------------------------------"""
 
+#Create a transaction
 @app.route('/insert_transaction', methods=['POST'])
 def insert_transaction():
     transactions = mongo.db.transactions
@@ -108,15 +103,15 @@ def insert_transaction():
 
     return redirect(url_for('get_transactions'))
 
-"""----------------------Search for the transaction by ID and creates a Json---------------------"""
 
+#Search for the transaction by ID and create a Json
 @app.route('/edit_transaction/<transaction_id>')
 def edit_transaction(transaction_id):
     the_transaction = mongo.db.transactions.find_one({'_id': ObjectId(transaction_id)})
     return json.dumps(the_transaction, default=json_util.default)
 
-"""-------------------------------------Updates a transaction------------------------------------"""
 
+#Updates a transaction
 @app.route('/update_transaction/<transaction_id>', methods=['POST'])
 def update_transaction(transaction_id):
     transactions = mongo.db.transactions
@@ -129,14 +124,13 @@ def update_transaction(transaction_id):
 
     return redirect(url_for('get_transactions'))
 
-"""-------------------------Deletes a transaction by searching on it's id------------------------"""
 
+#Delete a transaction by searching on it's id
 @app.route('/delete_transaction/<transaction_id>', methods=['POST'])
 def delete_transaction(transaction_id):
     mongo.db.transactions.remove({'_id': ObjectId(transaction_id)})
     return redirect(url_for('get_transactions'))
 
-"""---------------------------Run the app and set the proper IP + Port---------------------------"""
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
