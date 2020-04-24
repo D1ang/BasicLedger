@@ -52,8 +52,8 @@
             <td>€ {{transaction.amount}}</td>
           {% endif %}
             <td>
-              <a onclick="editTransaction('{{transaction._id}}')" href="#"><i class="fas fa-edit pr-2"></i></a>
-              <a onclick="deleteTransaction('{{transaction._id}}')" href="#"><i class="fas fa-trash"></i></a>
+              <a onclick="editTransaction('{{transaction._id}}')" href="#"><i class="fas fa-edit pr-2 custom-icon"></i></a>
+              <a onclick="deleteTransaction('{{transaction._id}}')" href="#"><i class="fas fa-trash custom-icon"></i></a>
             </td>
           </tr>
         {% endfor %}

@@ -86,6 +86,19 @@ h1, h2, h3, h4, h5, h6 {
   width: 100px;
 }
 
+.custom-icon {
+  color: rgb(40, 167, 69);
+  transition: 0.3s;
+}
+
+.custom-icon:hover {
+  color: rgb(33, 119, 51);
+}
+
+.custom-icon:active {
+  color: rgb(155, 209, 168);
+}
+
 .custom-search {
   width: 200px;
 }
@@ -106,6 +119,21 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 10px;
   border: 1px solid rgb(206, 212, 218);
   border-radius: 4px 0 0 4px;
+}
+
+.page-item.active .page-link {
+  background-color: rgb(40, 167, 69);
+  border-color: rgb(40, 167, 69);
+  transition: 0.3s;
+}
+
+.page-item.active .page-link:hover {
+  background-color: rgb(33, 119, 51);
+  border-color: rgb(33, 119, 51);
+}
+
+.table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before {
+  background-color: rgb(40, 167, 69);
 }
 
 /*------------------------Custom radio buttons styling------------------------*/
