@@ -91,7 +91,7 @@ def grand_total():
     return calc
 
 
-#Create a transaction
+#CRUD functionality for transactions page
 @app.route('/insert_transaction', methods=['POST'])
 def insert_transaction():
     transactions = mongo.db.transactions
@@ -104,14 +104,14 @@ def insert_transaction():
     return redirect(url_for('get_transactions'))
 
 
-#Search for the transaction by ID and create a Json
+
 @app.route('/edit_transaction/<transaction_id>')
 def edit_transaction(transaction_id):
+    #Search for the transaction by ID and create a Json
     the_transaction = mongo.db.transactions.find_one({'_id': ObjectId(transaction_id)})
     return json.dumps(the_transaction, default=json_util.default)
 
 
-#Updates a transaction
 @app.route('/update_transaction/<transaction_id>', methods=['POST'])
 def update_transaction(transaction_id):
     transactions = mongo.db.transactions
@@ -125,7 +125,6 @@ def update_transaction(transaction_id):
     return redirect(url_for('get_transactions'))
 
 
-#Delete a transaction by searching on it's id
 @app.route('/delete_transaction/<transaction_id>', methods=['POST'])
 def delete_transaction(transaction_id):
     mongo.db.transactions.remove({'_id': ObjectId(transaction_id)})
