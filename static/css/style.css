@@ -18,49 +18,49 @@ h1, h2, h3, h4, h5, h6 {
 /*-----------------------------Backgrounds colours----------------------------*/
 
 .navbar-bg {
-	background-color: rgb(84, 201, 123);
+  background-color: rgb(84, 201, 123);
 }
 
 .graphs-bg {
-	background-color: rgb(238, 238, 238);
+  background-color: rgb(238, 238, 238);
 }
 
 /*----------------------------Custom navbar styling---------------------------*/
 
 .custom-navbar {
-	background-color: rgba(255, 255, 255, 0.2);
-	border-radius: 0 0 10px 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 10px 10px;
 }
 
 .custom-navbarLogo {
-	font-family: 'Annie Use Your Telescope', sans-serif;
-	font-size: 1.8em;
+  font-family: 'Annie Use Your Telescope', sans-serif;
+  font-size: 1.8em;
 }
 
 /*---------------------------Custom overview styling--------------------------*/
 
 #dashboard-overview {
-	background-color: rgb(84, 201, 123);
-	border-radius: 0 0 10px 10px;
+  background-color: rgb(84, 201, 123);
+  border-radius: 0 0 10px 10px;
 }
 
 .dashboard-card {
-	background-color: rgb(84, 201, 123);
+  background-color: rgb(84, 201, 123);
 }
 
 .white-dividers {
-	border-left: solid 1px #fff;
-	border-right: solid 1px #fff;
+  border-left: solid 1px #fff;
+  border-right: solid 1px #fff;
 }
 
 @media screen and (max-width: 575px) {
-	.white-dividers {
-		border: none;
-	}
+  .white-dividers {
+    border: none;
+  }
 }
 
 .custom-graph {
-	border-radius: 10px;
+  border-radius: 10px;
   background-color: #fff;
 }
 
@@ -104,15 +104,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width: 375px) {
-	.custom-search {
-		width: 180px;
-	}
+  .custom-search {
+    width: 180px;
+  }
 }
 
 @media screen and (max-width: 320px) {
-	.custom-search {
-		width: 142px;
-	}
+  .custom-search {
+    width: 142px;
+  }
 }
 
 .custom-date {
@@ -139,27 +139,27 @@ h1, h2, h3, h4, h5, h6 {
 /*------------------------Custom radio buttons styling------------------------*/
 
 input.custom-radio-btn {
-	visibility: hidden;
+  visibility: hidden;
 }
 
 label.custom-radio-btn {
-	cursor: pointer;
-	padding: 1px;
-	margin-right: 20px;
-	color: #000;
-	-webkit-transition: 0.15s;
-	-o-transition: 0.15s;
-	transition: 0.15s;
+  cursor: pointer;
+  padding: 1px;
+  margin-right: 20px;
+  color: #000;
+  -webkit-transition: 0.15s;
+  -o-transition: 0.15s;
+  transition: 0.15s;
 }
 
 input.custom-radio-btn:hover + label.custom-radio-btn {
-	color: rgb(40, 167, 69);
+  color: rgb(40, 167, 69);
 }
 
 input.custom-radio-btn:active + label.custom-radio-btn {
-	color: rgba(72, 200, 101);
+  color: rgba(72, 200, 101);
 }
 
 input.custom-radio-btn:checked + label.custom-radio-btn {
-	color: rgb(40, 167, 69);
+  color: rgb(40, 167, 69);
 }
