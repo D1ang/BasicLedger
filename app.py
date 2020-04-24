@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 locale.setlocale(locale.LC_ALL, 'en_IE.utf8')
 
 
-#Loads the Bar- and Piechart for the dashboard
+# Loads the Bar- and Piechart for the dashboard
 def bar_chart():
     credit_data = list(mongo.db.transactions.aggregate([
         {'$match': {'transition': 'credit'}},
@@ -50,7 +50,7 @@ def pie_chart():
     return chart_data
 
 
-#Page views
+# Page views
 @app.route('/')
 def get_dashboard():
     return render_template('dashboard.html',
@@ -69,7 +69,7 @@ def get_transactions():
                            editCategories=mongo.db.categories.find())
 
 
-#Calculates the totals for the dashboard view
+# Calculates the totals for the dashboard view
 def debit_total():
     transaction_amount = []
 
@@ -91,7 +91,7 @@ def grand_total():
     return calc
 
 
-#CRUD functionality for transactions page
+# CRUD functionality for the transactions page
 @app.route('/insert_transaction', methods=['POST'])
 def insert_transaction():
     transactions = mongo.db.transactions
@@ -107,7 +107,7 @@ def insert_transaction():
 
 @app.route('/edit_transaction/<transaction_id>')
 def edit_transaction(transaction_id):
-    #Search for the transaction by ID and create a Json
+    # Search for the transaction by ID and create a Json
     the_transaction = mongo.db.transactions.find_one({'_id': ObjectId(transaction_id)})
     return json.dumps(the_transaction, default=json_util.default)
 
