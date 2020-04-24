@@ -76,6 +76,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 0;
 }
 
+.deleteModal-title {
+  width: 100%;
+  margin-left: 8px;
+  text-align: center;
+}
+
 .custom-btn {
   width: 100px;
 }
