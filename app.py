@@ -54,7 +54,6 @@ def pie_chart():
 """--------------------------------------Loads the dashboard-------------------------------------"""
 
 @app.route('/')
-@app.route('/get_dashboard')
 def get_dashboard():
     return render_template('dashboard.html',
                            debit=locale.currency(debit_total(), grouping = True),
