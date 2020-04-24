@@ -104,7 +104,6 @@ def insert_transaction():
     return redirect(url_for('get_transactions'))
 
 
-
 @app.route('/edit_transaction/<transaction_id>')
 def edit_transaction(transaction_id):
     # Search for the transaction by ID and create a Json
