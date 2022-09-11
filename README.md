@@ -140,7 +140,7 @@ The following tests have been used to ensure proper site functionality:
 - [Visual Studio Code](https://code.visualstudio.com/): Using the built-in tools to test on proper code.
 
 ## Deployment
-The example of this code is hosted by using Heroku and Mongo Atlas, this code is deployed to GitHub directly from the master branch.
+This code is deployed to GitHub directly from the master branch.
 The deployed site will update automatically upon new commits to the master branch.
 
 To run locally, you can clone this repository directly into the editor of your choice by entering
@@ -160,7 +160,7 @@ To get it up and running some extra steps need to be taken as will be explained 
   (like for example: Creditcard, Income, Other)
 
 Now that Mongo is up and running, we need to create a connection to it.
-For running the code on a non-Heroku server the `env.py` file needs to be created in the root folder of the code,
+For running the code on a server the `env.py` file needs to be created in the root folder of the code,
 in this file needs to be the following code:
 
 ```
@@ -169,7 +169,6 @@ os.environ["MONGO_URI"] = 'YOUR MONGODB SERVER URL'
 ```
 
 Change the **"YOUR MONGODB SERVER URL"** to the URL of your Mongo database and you're good to go.
-When using Heroku the `env.py` does **not** need to be created. On Heroku you can set up Config Vars under the settings option.
 The following Config Vars need to be set:
 
 ```
