@@ -10,9 +10,6 @@ In short:
 - A tool for end-users to easily manage their cashflow.
 - Providing a clear overview on a dashboard with graphs.
 
-## Demo
-A live demo version can be found **[here](https://easyledgr.herokuapp.com/)**
-
 ![Design](https://github.com/D1ang/EasyLedger/blob/master/mockups/presentation.png)
 
 ## UX
